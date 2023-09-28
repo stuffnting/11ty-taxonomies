@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "cats",
+    "title": "Cats"
+  },
+  {
+    "slugs": "dogs",
+    "title": "Dogs"
+  },
+  {
+    "slug": "mexican-hairless-dogs",
+    "title": "Mexico Hairless Dogs"
+  },
+  {
+    "slug": "i-think-that-s-all-for-the-cheese",
+    "title": "I Think That's All for the Cheese"
+  }
+]
