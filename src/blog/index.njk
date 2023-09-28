@@ -1,0 +1,14 @@
+---
+layout: layout.njk
+eleventyExcludeFromCollections: true
+permalink: "/blog/index.html"
+---
+
+<h1>PANTS Blog</h1>
+
+<ol class="post-list">
+  {% for post in collections.posts %}
+    <li class="post-list-item">
+      <a href="{{ post.url }}" class="postlist-link">{% if post.data.title %}{{ post.data.title }}{% else %}No Title{% endif %}</a></li>
+  {% endfor %}
+</ol>

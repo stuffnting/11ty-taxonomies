@@ -1,0 +1,17 @@
+---
+layout: layout.njk
+# keywordsObj defined in ../blog/blog.11tydata.js
+# joiner() is a nunjucks thing
+---
+
+<h1>{% if title %}{{ title }}{% else %}***MISSING TITLE***{% endif %}</h1>
+
+{{ content | safe }}
+
+<p>
+  <b>Keywords:</b> 
+  {% set comma = joiner() %}
+  {% for keyword in keywordsObj -%}
+    {{- comma() }} <a href="/{{ keywordsSlugBase }}/{{ keyword.slug }}">{{ keyword.title }}</a>
+  {%- endfor %}
+</p>
