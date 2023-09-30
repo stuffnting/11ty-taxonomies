@@ -1,4 +1,4 @@
-module.exports = (taxonomy, data) => {
+module.exports = function (taxonomy, data) {
   let postList = '';
   data.collections[taxonomy].forEach((value, key) => {
     if (key.slug === data.term.slug) {

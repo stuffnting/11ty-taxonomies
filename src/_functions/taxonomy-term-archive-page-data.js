@@ -3,7 +3,7 @@
  * @see {@link https://github.com/stuffnting/11ty-notes/blob/main/pagination.md#use-paginationbefore-for-data-11ty-doesnt-want-to-paginate-paginate-js-maps}
  */
 
-module.exports = (taxonomy, taxonomySlugBase) => {
+module.exports = function (taxonomy, taxonomySlugBase) {
   return {
     layout: 'layout.njk',
     pagination: {
