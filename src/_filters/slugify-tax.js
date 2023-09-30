@@ -5,4 +5,4 @@
  */
 const slugify = require('@sindresorhus/slugify');
 
-module.exports = (cat) => slugify(cat);
+module.exports = (term) => slugify(term);

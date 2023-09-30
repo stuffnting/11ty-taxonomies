@@ -13,15 +13,28 @@ module.exports = (eleventyConfig) => {
   // Utilises the other 3 filters to make objects in the form {slug: slugName, title: titleName}
   eleventyConfig.addFilter('taxObject', require('./src/_filters/tax-object.js'));
 
+  // Utilises the taxObject filter, then checks the terms against a list of allowed terms.
+  eleventyConfig.addFilter('taxCheckAgainstList', require('./src/_filters/tax-check-against-list'));
+
   /**
    * Build the `keywords` taxonomy for `posts`.
    */
   eleventyConfig.addCollection('keywordsAndPosts', (collectionAPI) => {
-    return buildTaxonomy(eleventyConfig, collectionAPI, 'keywords');
+    return buildTaxonomy(eleventyConfig, collectionAPI, 'keywords', 'posts');
   });
 
-  // Slug base for category archive pages and index; e.g. /keyword/dogs/
+  // Slug base for keyword archive pages and index; e.g. /keyword/dogs/
   eleventyConfig.addGlobalData('keywordsSlugBase', 'keywords');
+
+  /**
+   * Build the `categories` taxonomy for `posts`.
+   */
+  eleventyConfig.addCollection('categoriesAndPosts', (collectionAPI) => {
+    return buildTaxonomy(eleventyConfig, collectionAPI, 'categories', 'posts', 'catsForPosts');
+  });
+
+  // Slug base for categories archive pages and index; e.g. /keyword/dogs/
+  eleventyConfig.addGlobalData('categoriesSlugBase', 'categories');
 
   /****************************************************************************
    * Drafts

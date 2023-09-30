@@ -1,4 +1,5 @@
 const keywordsObj = require('../_filters/tax-object');
+const categoriesObj = require('../_filters/tax-check-against-list');
 
 module.exports = {
   layout: 'blog-layout.njk',
@@ -7,6 +8,7 @@ module.exports = {
   permalink: '/blog/{{page.fileSlug}}/{{ title | slugify }}/',
   eleventyComputed: {
     // Make can object out of the keywords
-    keywordsObj: (data) => keywordsObj(data.keywords),
+    keywordsObj: (data) => keywordsObj(data.keywords, data.catsForPosts),
+    categoriesObj: (data) => categoriesObj(data.categories, data.catsForPosts),
   },
 };

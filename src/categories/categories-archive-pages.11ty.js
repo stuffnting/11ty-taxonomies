@@ -1,14 +1,17 @@
 const getContents = require('../_functions/taxonomy-term-archive-page-contents');
 const getData = require('../_functions/taxonomy-term-archive-page-data');
 
-class KeywordArchivePages {
+class CategoriesArchivePages {
   data() {
-    return { ...getData('keywordsAndPosts', 'keywordsSlugBase'), taxonomyName: 'Keyword' };
+    return {
+      ...getData('categoriesAndPosts', 'categoriesSlugBase'),
+      taxonomyName: 'Category',
+    };
   }
   render(data) {
     // List the posts for the current term.
-    return getContents('keywordsAndPosts', data);
+    return getContents('categoriesAndPosts', data);
   }
 }
 
-module.exports = KeywordArchivePages;
+module.exports = CategoriesArchivePages;

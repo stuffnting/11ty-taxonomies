@@ -1,6 +1,6 @@
 ---
 title: Post number 1
-categories: ["cats", "dogs"]
+categories: ["cats", "dogs", "I am not allowed"]
 keywords:
   - Pants
   - Acid

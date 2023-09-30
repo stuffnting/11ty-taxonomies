@@ -1,13 +1,12 @@
 ---
 layout: layout.njk
-title: Keywords Index Page
-# keywordsSlugBase is set globally in eleventy.ocnfig.js
 ---
 
 <h1>{{ title }}</h1>
 
-{% for keywordObj, posts in collections.keywordsAndPosts %}
-  <h2><a href="/{{ keywordsSlugBase }}/{{ keywordObj.slug }}/">{{ keywordObj.title }}</a></h2>
+{% for taxObj, posts in taxonomy %}
+  <h2><a href="/{{ taxSlugBase }}/{{ taxObj.slug }}/">{{ taxObj.title }}</a></h2>
+  {% if posts | length %}
   <ul>
   {% for post in posts %}
     <li>
@@ -15,4 +14,7 @@ title: Keywords Index Page
     </li>
   {% endfor %}
   </ul>
+  {% else %}
+  <p>*** NO POSTS. ***</p>
+  {% endif %}
 {% endfor %}

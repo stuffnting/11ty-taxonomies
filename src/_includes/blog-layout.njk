@@ -9,9 +9,17 @@ layout: layout.njk
 {{ content | safe }}
 
 <p>
+  <b>Categories:</b> 
+  {% set comma = joiner() %}
+  {% for category in categoriesObj -%}
+    {{- comma() }} <a href="/{{ categoriesSlugBase }}/{{ category.slug }}/">{{ category.title }}</a>
+  {%- endfor %}
+</p>
+
+<p>
   <b>Keywords:</b> 
   {% set comma = joiner() %}
   {% for keyword in keywordsObj -%}
-    {{- comma() }} <a href="/{{ keywordsSlugBase }}/{{ keyword.slug }}">{{ keyword.title }}</a>
+    {{- comma() }} <a href="/{{ keywordsSlugBase }}/{{ keyword.slug }}/">{{ keyword.title }}</a>
   {%- endfor %}
 </p>

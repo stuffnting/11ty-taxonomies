@@ -7,8 +7,8 @@ const filterRawTax = require('./filter-raw-tax');
 const slugifyTax = require('./slugify-tax');
 const titleCaseTax = require('./title-case-tax');
 
-module.exports = (cats) => {
-  const taxRawArray = filterRawTax(cats);
+module.exports = (terms) => {
+  const taxRawArray = filterRawTax(terms);
   // No Taxonomy terms. Return a single element array containing a slug/title object.
   if (taxRawArray.length === 0) {
     return [{ slug: 'uncategorised', title: 'Uncategorised' }];

@@ -6,5 +6,9 @@
  * Otherwise, return an empty array.
  */
 
-module.exports = (cats) =>
-  cats && Array.isArray(cats) && cats.length > 0 ? cats : typeof cats === 'string' ? [cats] : [];
+module.exports = (terms) =>
+  terms && Array.isArray(terms) && terms.length > 0
+    ? terms
+    : typeof terms === 'string'
+    ? [terms]
+    : [];
